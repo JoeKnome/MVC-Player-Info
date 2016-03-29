@@ -17,6 +17,10 @@
   ],
   "author": "Joe Kapusta",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoeKnome/MVC-Player-Info.git"
+  },
   "dependencies": {
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
