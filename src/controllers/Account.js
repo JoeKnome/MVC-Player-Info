@@ -15,10 +15,6 @@ var logout = function(req, res) {
 	res.redirect('/');
 };
 
-var app = function(req, res) {
-	res.render('app', {csrfToken: req.csrfToken()});
-};
-
 var login = function(req, res) {
 	if(!req.body.username || !req.body.pass) {
 		return res.status(400).json({error: "All fields are required"});
@@ -31,7 +27,7 @@ var login = function(req, res) {
 		
 		req.session.account = account.toAPI();
 		
-		res.json({redirect: '/app'});
+		res.json({redirect: '/game'});
 	});
 };
 
@@ -61,7 +57,7 @@ var signup = function(req, res) {
 			
 			req.session.account = newAccount.toAPI();
 			
-			res.json({redirect: '/app'});
+			res.json({redirect: '/profile'});
 		});
 	});
 };
@@ -69,6 +65,5 @@ var signup = function(req, res) {
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
-module.exports.app = app;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;

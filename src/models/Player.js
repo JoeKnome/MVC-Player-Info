@@ -15,6 +15,24 @@ var PlayerSchema = new mongoose.Schema({
 		set: setName
 	},
 	
+	plays: {
+		type: Number,
+		required: true,
+		default: 0
+	},
+	
+	wins: {
+		type: Number,
+		required: true,
+		default: 0
+	},
+	
+	losses: {
+		type: Number,
+		required: true,
+		default: 0
+	},
+	
 	owner: {
 		type: mongoose.Schema.ObjectId,
 		required: true,
@@ -40,7 +58,7 @@ PlayerSchema.statics.findByOwner = function(ownerId, callback) {
 		owner: mongoose.Types.ObjectId(ownerId)
 	};
 	
-	return PlayerModel.find(search).select("name").exec(callback);
+	return PlayerModel.findOne(search).select("name plays wins losses").exec(callback);
 };
 
 PlayerSchema.statics.findByName = function(ownerId, name, callback) {
@@ -49,7 +67,7 @@ PlayerSchema.statics.findByName = function(ownerId, name, callback) {
         name: name
     };
 
-    return PlayerModel.findOne(search).select("name").exec(callback);
+    return PlayerModel.findOne(search).select("name plays wins losses").exec(callback);
 };
 
 PlayerModel = mongoose.model('Player', PlayerSchema);

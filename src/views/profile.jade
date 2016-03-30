@@ -1,0 +1,25 @@
+extends ./base.jade
+block append style
+	link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+	nav
+		.navlink
+			a(href="/game") Game
+			a(href="/logout") Log out
+		if !player
+			h3 No player data found
+		else
+			section#playerInfo
+				h3 Name: player.name
+				h3 Plays: player.plays
+				h3 Wins: player.wins
+				h3 Losses: player.losses
+			a#editPlayerBut(href="#") Edit Player
+			section#editPlayer
+				form#playerForm(name="playerForm", action="/editPlayer", method="POST")
+					label(for="name") Name:
+					input#playerName(type="text", name="name", placeholder=player.name)
+					input(type="hidden", name="_csrf", value="#{csrfToken}")
+					a#playerSubmit(href="#") Submit
+	#errorMessage
+block scripts
