@@ -1,6 +1,7 @@
 var models = require('../models');
 
 var Account = models.Account;
+var Player = models.Player;
 
 var loginPage = function(req, res) {
 	res.render('login', {csrfToken: req.csrfToken()});
@@ -57,8 +58,26 @@ var signup = function(req, res) {
 			
 			req.session.account = newAccount.toAPI();
 			
-			res.json({redirect: '/profile'});
+			generatePlayer(req, res);
 		});
+	});
+};
+
+var generatePlayer = function(req, res) {
+	var playerData = {
+		name: req.body.username,
+		owner: req.session.account._id
+	};
+	
+	var newPlayer = new Player.PlayerModel(playerData);
+	
+	newPlayer.save(function(err) {
+		if(err) {
+			console.log(err);
+			return res.status(400).json({error:"An error occurred"});
+		}
+					
+		res.json({redirect: '/profile'});
 	});
 };
 

@@ -45,14 +45,6 @@ var PlayerSchema = new mongoose.Schema({
 	}
 });
 
-PlayerSchema.methods.toAPI = function() {
-	return {
-		name: this.name,
-		age: this.age,
-		job: this.job
-	};
-};
-
 PlayerSchema.statics.findByOwner = function(ownerId, callback) {
 	var search = {
 		owner: mongoose.Types.ObjectId(ownerId)

@@ -2,11 +2,13 @@ extends ./base.jade
 block append style
 	link(rel="stylesheet", type="text/css", href="/assets/style.css")
 block body
+	#title
+		h1 Login
 	nav
 		.navlink
-			a(href="/login") Login
-		.navlink
 			a(href="/signup") Sign up
+		.navlink
+			a(href="/about") About
 	section#login
 		form#loginForm(class="mainForm", name="loginForm", action="/login", method="POST")
 			label(for="username") Username: 

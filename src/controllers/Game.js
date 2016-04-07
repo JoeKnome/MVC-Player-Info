@@ -17,24 +17,10 @@ var profilePage = function(req, res) {
 	});
 };
 
-var generatePlayer = function(req, res) {
-	var playerData = {
-		name: req.body.username,
-		owner: req.session.account._id
-	};
-	
-	var newPlayer = new Player.PlayerModel(playerData);
-	
-	newPlayer.save(function(err) {
-		if(err) {
-			console.log(err);
-			return res.status(400).json({error:"An error occurred"});
-		}
-					
-		res.json({redirect: '/profile'});
-	});
+var aboutPage = function(req, res) {
+	res.render('about');
 };
 
 module.exports.gamePage = gamePage;
 module.exports.profilePage = profilePage;
-module.exports.generatePlayer = generatePlayer;
+module.exports.aboutPage = aboutPage;
