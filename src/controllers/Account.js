@@ -81,8 +81,31 @@ var generatePlayer = function(req, res) {
 	});
 };
 
+var editPlayer = function(req, res) {
+	Player.PlayerModel.findByOwner(req.session.account._id, function(err, doc) {
+		if(err) {
+            return res.json({err:err});          
+        }
+		
+		if(!doc) {
+            return res.json({error: "Player data not found"});
+        }
+		
+		doc.name = req.body.playerName;
+		
+		doc.save(function(err) {
+			if (err) {
+				return res.json({err: err});
+			}
+			
+			return res.json({redirect: '/profile'});
+		});
+	});
+};
+
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
+module.exports.editPlayer = editPlayer;

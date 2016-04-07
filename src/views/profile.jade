@@ -21,6 +21,7 @@ block body
 			h3 Losses: #{player.losses}
 		a#editPlayerBut(class="formSubmit", href="#") Edit Player
 		section#editPlayer
+			p This will change only the player name that other players see. <br /> The username you sign in with will remain the same.
 			form#playerForm(name="playerForm", action="/editPlayer", method="POST")
 				label(for="name") Name:
 				input#playerName(type="text", name="name", placeholder="#{player.name}")
@@ -28,3 +29,4 @@ block body
 				a#playerSubmit(class="formSubmit", href="#") Submit
 	#errorMessage
 block scripts
+	script(src="/assets/client.js")
