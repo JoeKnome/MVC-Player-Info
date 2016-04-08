@@ -9,7 +9,26 @@ block body
 			a(href="/game") Game
 		.navlink
 			a(href="/profile") Profile
-		.navlink
-			a(href="/logout") Log out
+	section#about
+		h3 Purpose
+		p. 
+			This site allows you to create an account to use to play a game. The results of your play are stored in your personal player data, which can then be viewed by going to your profile.
+			While the game here is a simple placeholder, the system allows for the storage of any player data coming from a more substantial game. I intend to use this system to store and display 
+			player information in my multiplayer game project.
+		h3 MVC
+		p.
+			I used the Express MVC framework. All of the pages of this site are rendered as views. The account and player data are contained in models stored on the database. I used a different model 
+			to store the player data to add a separation between the sensitive account data and the public player data, to independantly store the variables which will be frequently changing, and to allow
+			the future possibility of multiple player characters per account, should the need arise. The controllers handle all of the client-server interaction, including navigating views, and saving 
+			and loading information from the database.
+		h3 Database
+		p.
+			I used Mongo to store account and player data. The account data includes the username, password, and security information for the users. The player data includes the player's screen name 
+			along with their game stats, like their number of won games. The account data is set once, then used to authenticate users. The player data frequently changes as the players complete games, 
+			or whenever they change their screen name.
+		h3 Templating
+		p.
+			I used Jade for templating all of the pages within this site. No HTML is used directly. CSS is used for styling, and JavaScript for behavior, including context-based changes to the page content.
+			The profile page also populates with data drawn from the database, based on the user stored in the current session.
 	#errorMessage
 block scripts
