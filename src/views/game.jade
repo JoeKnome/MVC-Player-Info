@@ -11,5 +11,13 @@ block body
 			a(href="/about") About
 		.navlink
 			a(href="/logout") Log out
+	section#game
+		a#win(href="#") Win
+		a#lose(href="#") Lose
+		input#token(type="hidden", name="_csrf", value="#{csrfToken}")
+	section#feedback
+		p#results You won!
+		a#replay(href="#") Play Again
 	#errorMessage
 block scripts
+	script(src="/assets/client.js")

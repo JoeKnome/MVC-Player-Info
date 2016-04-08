@@ -90,15 +90,16 @@ var editPlayer = function(req, res) {
 		if(!doc) {
             return res.json({error: "Player data not found"});
         }
-		
-		doc.name = req.body.playerName;
+
+		doc.name = req.body.name;
 		
 		doc.save(function(err) {
 			if (err) {
-				return res.json({err: err});
+				console.log(err);
+				return res.status(400).json({error:"An error occurred"});
 			}
 			
-			return res.json({redirect: '/profile'});
+			res.json({redirect: '/profile'});
 		});
 	});
 };

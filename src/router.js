@@ -10,6 +10,7 @@ var router = function(app) {
 	app.post('/editPlayer', mid.requiresSecure, mid.requiresLogin, controllers.Account.editPlayer);
 	app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 	app.get('/game', mid.requiresLogin, controllers.Game.gamePage);
+	app.post('/updateStats', mid.requiresLogin, controllers.Game.updateStats);
 	app.get('/profile', mid.requiresLogin, controllers.Game.profilePage);
 	app.get('/about', controllers.Game.aboutPage);
 	app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);

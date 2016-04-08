@@ -79,4 +79,33 @@ $(document).ready(function() {
         
         return false;
 	});
+	
+	$("#win").on("click", function(e){
+		e.preventDefault();
+		
+		document.querySelector("#game").style.display = "none";
+		document.querySelector("#feedback").style.display = "block";
+		document.querySelector("#results").textContent = "You won!";
+		
+		sendAjax("/updateStats", {result: "win", _csrf: $("#token").val()});
+	});
+	
+	$("#lose").on("click", function(e){
+		e.preventDefault();
+		
+		document.querySelector("#game").style.display = "none";
+		document.querySelector("#feedback").style.display = "block";
+		document.querySelector("#results").textContent = "You lost!";
+		
+		sendAjax("/updateStats", {result: "lose", _csrf: $("#token").val()});
+	});
+	
+	$("#replay").on("click", function(e){
+		e.preventDefault();
+		
+		document.querySelector("#feedback").style.display = "none";
+		document.querySelector("#game").style.display = "block";
+		
+		document.querySelector("#errorMessage").textContent = "";
+	});
 });

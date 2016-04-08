@@ -119,6 +119,9 @@ label {
 }
 
 #errorMessage {
+	width: 100%;
+	text-align: center;
+	margin: 25px;
     font-weight: bold;
     color: red;
     font-style: italic;
@@ -135,4 +138,37 @@ label {
 #editPlayer {
 	display: none;
 	text-align: center;
+}
+
+#game, #feedback {
+	width: 40%;
+	background-color: #1E1E50;
+	font-family: 'Audiowide', arial, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 20px 0px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#feedback {
+	display: none;
+}
+
+#game a, #game a:visited, #replay, #replay:visited {
+	display: inline-block;
+	width: 41%;
+	padding: 15px 0;
+	transition: background-color 0.4s ease;
+	margin: 25px 10px;
+	text-align: center;
+	border-radius: 2px;
+	color: white;
+	text-decoration: none;
+}
+
+#game a:hover, #replay:hover {
+	background-color: #494991;
 }
