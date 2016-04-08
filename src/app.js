@@ -21,6 +21,7 @@ var db = mongoose.connect(dbURL, function(err) {
 	}
 });
 
+// connect redis
 var redisURL = {
 	hostname: 'localhost',
 	port: 6379
@@ -73,6 +74,7 @@ app.use(function(err, req, res, next) {
 
 router(app);
 
+// start app
 app.listen(port, function(err) {
 	if(err) {
 		throw err;

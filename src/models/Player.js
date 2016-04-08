@@ -8,6 +8,7 @@ var setName = function(name) {
 };
 
 var PlayerSchema = new mongoose.Schema({
+	// screen name that others see
 	name: {
 		type: String,
 		required: true,
@@ -15,36 +16,42 @@ var PlayerSchema = new mongoose.Schema({
 		set: setName
 	},
 	
+	// number of total game plays
 	plays: {
 		type: Number,
 		required: true,
 		default: 0
 	},
 	
+	// number of games won
 	wins: {
 		type: Number,
 		required: true,
 		default: 0
 	},
 	
+	// number of games lost
 	losses: {
 		type: Number,
 		required: true,
 		default: 0
 	},
 	
+	// user who owns this player
 	owner: {
 		type: mongoose.Schema.ObjectId,
 		required: true,
 		ref: 'Account'
 	},
 	
+	// time of creation
 	createdData: {
 		type: Date,
 		default: Date.now
 	}
 });
 
+// find player info by owner
 PlayerSchema.statics.findByOwner = function(ownerId, callback) {
 	var search = {
 		owner: mongoose.Types.ObjectId(ownerId)
@@ -53,6 +60,7 @@ PlayerSchema.statics.findByOwner = function(ownerId, callback) {
 	return PlayerModel.findOne(search).select("name plays wins losses").exec(callback);
 };
 
+// find player info by screen name
 PlayerSchema.statics.findByName = function(ownerId, name, callback) {
     var search = {
 		owner: mongoose.Types.ObjectId(ownerId),
