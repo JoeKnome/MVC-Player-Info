@@ -1,0 +1,12 @@
+#playerInfo {
+	text-align: center;
+}
+
+#editPlayerBut {
+	margin-bottom: 20px;
+}
+
+#editPlayer {
+	display: none;
+	text-align: center;
+}

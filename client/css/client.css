@@ -59,18 +59,6 @@ nav {
 	background-color: #494991;
 }
 
-.mainForm {
-    height: 300px;
-    width: 350px;
-    margin: 0 auto;
-    padding-top: 350px;
-    font-size: 1.2em;
-}
-
-.mainForm h3 {
-    text-align: center;
-}
-
 label {
     display: inline-block;
     width: 100px;
@@ -83,36 +71,21 @@ label {
     transition: background-color 0.4s ease;
     display: block;
     text-align: center;
+	font-family: 'Audiowide', arial, sans-serif;
     margin: 0 auto;
     margin-top: 14px;
     font-size: 1.2em;
-    background-color: #494991;
+    background-color: #1E1E50;
 	width: 115px;
     border-radius: 2px;
     padding: 3px 0px;
-    color: black;
+    color: #DCE6FF;
     text-decoration: none;
-}
-
-.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
-    color: white;
 }
 
 .formSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #2525B8;
-}
-
-#user, #pass, #pass2 {
-    text-align: center;
-    font-size: 1.1em;
-    width: 180px;
-    border-radius: 6px;
-}
-
-#user:focus, #pass:focus, #pass2:focus {
-    outline: none;
-    box-shadow: 0px 0px 1px 1px #55acee;
+    background-color: #494991;
 }
 
 #errorMessage {
@@ -122,66 +95,4 @@ label {
     font-weight: bold;
     color: red;
     font-style: italic;
-}
-
-#playerInfo {
-	text-align: center;
-}
-
-#editPlayerBut {
-	margin-bottom: 20px;
-}
-
-#editPlayer {
-	display: none;
-	text-align: center;
-}
-
-#game, #feedback {
-	width: 40%;
-	background-color: #1E1E50;
-	font-family: 'Audiowide', arial, sans-serif;
-	font-size: 30px;
-	font-weight: bold;
-	text-decoration: none;
-	text-align: center;
-	padding: 10px 20px 0px;
-	margin: 0 auto;
-	margin-top: 50px;
-}
-
-#feedback {
-	display: none;
-}
-
-#game a, #game a:visited, #replay, #replay:visited {
-	display: inline-block;
-	width: 41%;
-	padding: 15px 0;
-	transition: background-color 0.4s ease;
-	margin: 25px 10px;
-	text-align: center;
-	border-radius: 2px;
-	color: white;
-	text-decoration: none;
-}
-
-#game a:hover, #replay:hover {
-	background-color: #494991;
-}
-
-#about {
-	width: 95%;
-	margin: 0 auto;
-}
-
-#about h3 {
-	width: 100%;
-	background-color: #1E1E50;
-}
-
-#about p {
-	width: 80%;
-	margin: 0 auto;
-	margin-bottom: 20px;
 }

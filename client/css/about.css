@@ -1,0 +1,15 @@
+#about {
+	width: 95%;
+	margin: 0 auto;
+}
+
+#about h3 {
+	width: 100%;
+	background-color: #1E1E50;
+}
+
+#about p {
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
